@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  
+<meta content="4RoeIiMtOWmdVuX7yWKAqg5cCXruLiD++n22hVVC9b8=" name="csrf-token" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+  <script type="text/javascript" src="communication.js"></script>
+  <link href="/assets/style.css?body=1" media="screen" rel="stylesheet" />
+  <link href="/assets/stylesheets/products.css" media="screen" rel="stylesheet" />
+</head>
+<body>
+
+<!--=== End Top ===-->
+  <div class="container">
+    <!--=== Top ===-->
+<div class="browse">
+  <div class="container">
+    <ul>
+      <li><a href="/categories/1">Art</a></li>
+      <li><a href="/categories/2">Home &amp; Living</a></li>
+      <li><a href="/categories/3">Jewelry</a></li>
+      <li><a href="/categories/4">Women</a></li>
+      <li><a href="/categories/5">Men</a></li>
+      <li><a href="/categories/6">Kids</a></li>
+      <li><a href="/categories/7">Vintage</a></li>
+      <li><a href="/categories/8">Weddings</a></li>
+      <li><a href="/categories/9">Crafts</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="top">
+    <div class="container">
+    <div class="logo">
+      <a href="/pages/home"><img src="https://www.etsy.com/assets/dist/images/etsylogo.20140703190113.png"></a>  
+    </div>
+    <div>
+        <ul class="header-nav">
+              <a class="btn btn-default" href="/users/sign_up">Sign up</a>
+              <a class="btn btn-default" href="/users/sign_in">Sign in</a>
+            <li class="account">
+              <div class="cart pull-right">
+                <div class="fa fa-shopping-cart fa-2x">
+                </div>
+              </div>
+          </li>
+        </ul>
+    </div>
+</div>
+
+
+<br>
+<%= link_to 'All categories', categories_path %>
+<br>
+<%= link_to 'New Product', new_product_path %>
+<br>
+
+
+
+	<h1 style="text-align: center">Listing products</h1>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	      <th>Price</th>
+	      <th>Thumburl</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @products.each do |product| %>
+	      <tr>
+	        <td><%= product.product_name %></td>
+	        <td><%= product.description %></td>
+	        <td><%= product.price %></td>
+	        <% if product.thumburl %>
+	          <td><%= image_tag product.thumburl %></td>
+	        <% end %>
+	        <td><%= link_to 'Show', product %></td>
+	        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+	        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<br>
+
+	
+
+	
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <ul>
+          <li><h4>Get to Know Us</h4></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Developers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul>
+          <li><h4>Follow Andrii on</h4></li>
+          <li><a href="https://www.facebook.com/volandy"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+          <li><a href="https://twitter.com/volandy"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+          <li><a href="https://vk.com/volckov"><i class="fa fa-pinterest-square fa-lg"></i> Vkontakte</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+
+</body>
+</html>
